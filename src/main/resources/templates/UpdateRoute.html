@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Vehicles</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+    <div>
+        <a th:href="@{/adminHome}">Home</a>
+        | &nbsp;
+        <a th:href="@{/logout}">Logout</a></div>
+</div>
+<h2>Update Route</h2>
+<form class="form-page" th:action="@{/updateRouteDetails}" method="post">
+   <table th:each="stopsForm : ${stopsForm}">
+      <tr>
+         <td><label class="register-label">Source: </label></td>
+         <td><input class="input" type="text" name="source" th:value="${stopsForm.getFromPlace()}" th:readonly="readonly"/> </td>
+      </tr>
+      <tr>
+         <td><label class="register-label">Destination</label></td>
+         <td><input class="input" type="text" name="destination" th:value="${stopsForm.getToPlace()}" th:readonly="readonly"/> </td>
+      </tr>
+      <tr>
+         <td><label class="register-label">Cost</label></td>
+         <td><input class="input" type="text" name="cost" th:value="${stopsForm.getCost()}"/></td>
+      </tr>
+      <tr>
+         <td><label class="register-label">Assigned Vehicle</label></td>
+         <td><select name="vehicleNo">
+             <option th:value="${stopsForm.getVehicleNo()}" th:text="${stopsForm.getVehicleNo()}"></option>
+             <option th:each="VehicleNumber : ${vehicleNumber}" th:value="${VehicleNumber}" th:text="${VehicleNumber}"></option>
+         </select> </td>
+      </tr>
+      <tr>
+         <td><input type="submit" value="Update Route"/></td>
+      </tr>
+       <tr>
+           <td><a th:href="@{/manageStops}">Back to Route List</a></td>
+       </tr>
+   </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Vehicles</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+    <div>
+        <a th:href="@{/adminHome}">Home</a>
+        | &nbsp;
+        <a th:href="@{/logout}">Logout</a></div>
+</div>
+
+<h3>Add new Vehicle</h3>
+
+<form class="form-page" th:action="@{/adminAddVehicle}" th:object="${adminAdd_form}" method="POST">
+    <table>
+        <tr>
+            <td><label class="register-label">Vehicle Number</label></td>
+            <td><input name="vehicleno" class="input" type="text" th:field="*{vehicleNo}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('vehicleNo')}" th:errors="*{vehicleNo}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Vehicle Type</label> </td>
+            <td><input name="vehicletype" class="input" type="text" th:field="*{vehicleType}"/> </td>
+            <td>
+                <span th:if="${#fields.hasErrors('vehicleType')}" th:errors="*{vehicleType}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Owner</label> </td>
+            <td><input name="owner" class="input" type="text" th:field="*{owner}"/> </td>
+            <td>
+                <span th:if="${#fields.hasErrors('owner')}" th:errors="*{owner}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Maximum Occupancy</label></td>
+            <td><input name="maxocc" class="input" type="text" th:field="*{maxOcc}"/> </td>
+            <td>
+                <span th:if="${#fields.hasErrors('maxOcc')}" th:errors="*{maxOcc}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add vehicle"/></td>
+        </tr>
+    </table>
+
+</form>
+</body>

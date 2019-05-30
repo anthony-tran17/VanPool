@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Page</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body class="full-page">
+<th:block th:include="/_menu"></th:block>
+<h2>Register</h2>
+<h2><div th:if = "${errorMessage!=null}" th:utext="${errorMessage}" class="error">..
+</div></h2>
+<div class="register-page">
+<form class="form-page" th:action="@{/register}" th:object="${users_form}" method="POST">
+    <table>
+        <tr>
+            <td><label class="register-label">First Name</label></td>
+            <td><input class="input" type="text" th:field="*{first_name}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Last Name</label></td>
+            <td><input class="input" type="text" th:field="*{last_name}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Email Address</label></td>
+            <td><input class="input" type="text" th:field="*{email}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Password</label></td>
+            <td><input class="input" type="password" th:field="*{password}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Telephone number</label></td>
+            <td><input class="input" type="text" th:field="*{tel_no}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('tel_no')}" th:errors="*{tel_no}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Address</label></td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Line1</label></td>
+            <td><input class="input" type="text" th:field="*{line1}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('line1')}" th:errors="*{line1}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Line2</label></td>
+            <td><input class="input" type="text" th:field="*{line2}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('line2')}" th:errors="*{line2}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">City</label></td>
+            <td><input class="input" type="text" th:field="*{city}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">State</label></td>
+            <td><input class="input" type="text" th:field="*{state}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Pincode</label></td>
+            <td><input class="input" type="text" th:field="*{pincode}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('pincode')}" th:errors="*{pincode}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Status</label></td>
+            <td><select th:field="*{level}">
+                <option value="0">Passenger</option>
+                <option value="1">Driver</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>

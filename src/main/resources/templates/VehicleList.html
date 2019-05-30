@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Vehicles</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+    <div>
+        <a th:href="@{/adminHome}">Home</a>
+        | &nbsp;
+        <a th:href="@{/logout}">Logout</a></div>
+</div>
+<h2>List of vehicles</h2>
+<h3>Welcome <span th:text="${userName}"></span></h3>
+<a th:href="@{/adminAddVehicle}">Add vehicle</a>
+<form class="form-page" th:action="@{/updateVehicle}" th:method="POST">
+<table>
+    <tr>
+        <th>Vehicle Number</th>
+        <th>| &nbsp;</th>
+        <th>Vehicle Type</th>
+        <th>| &nbsp;</th>
+        <th>Owner</th>
+        <th>| &nbsp;</th>
+        <th>Email</th>
+        <th>| &nbsp;</th>
+        <th>Maximum Occupancy</th>
+    </tr>
+    <tr th:each="vehicleList : ${vehicleList}">
+        <td th:text="${vehicleList.getVehicleNo()}"></td>
+        <td>&nbsp; &nbsp; </td>
+        <td th:text="${vehicleList.getVehicleType()}"></td>
+        <td>&nbsp; &nbsp; </td>
+        <td th:text="${vehicleList.getFirst_name()}"></td>
+        <td>&nbsp; &nbsp; </td>
+        <td th:text="${vehicleList.getEmail()}"></td>
+        <td>&nbsp; &nbsp; </td>
+        <td th:text="${vehicleList.getMaxOcc()}"></td>
+        <td>&nbsp; &nbsp;</td>
+        <td>
+            <button type="submit" name="vehicleNo"  th:value="${vehicleList.getVehicleNo()}">Update Vehicle</button></td>
+        <td>&nbsp; &nbsp;</td>
+    </tr>
+</table>
+</form>
+</body>

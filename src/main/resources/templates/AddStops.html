@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <title>Admin Home page</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+
+    <a th:href="@{/adminHome}">Home</a>
+
+    | &nbsp;
+
+    <a th:href="@{/logout}">Logout</a>
+</div>
+<form class="form-page" th:action="@{/addStops}" th:object="${stopsForm}" method="POST">
+    <table>
+        <tr>
+            <td><label class="register-label">From</label></td>
+            <td><input name="fromplace" class="input" type="text" th:field="*{fromPlace}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('fromPlace')}" th:errors="*{fromPlace}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">To</label></td>
+            <td><input name="toplace" class="input" type="text" th:field="*{toPlace}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('toPlace')}" th:errors="*{toPlace}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Cost</label></td>
+            <td><input name="cost" class="input" type="text" th:field="*{cost}"/></td>
+            <td>
+                <span th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}">..</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="register-label">Available Vehicles</label></td>
+            <td><select id="vehicleno" th:field="*{vehicleNo}">
+                <option th:each="vehicleNumber: ${vehicleNumber}" th:value="${vehicleNumber}" th:text="${vehicleNumber}">
+                </option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add Route"/></td>
+        </tr>
+    </table>
+</form>
+</body>

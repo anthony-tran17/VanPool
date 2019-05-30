@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Home page</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+
+    <a th:href="@{/adminHome}">Home</a>
+
+    | &nbsp;
+
+    <a th:href="@{/manageVehicles}">Manage Vehicles</a>
+
+    |  &nbsp;
+
+    <a th:href="@{/addDriver}">Add new Drivers</a>
+
+    |  &nbsp;
+
+    <a th:href="@{/addStops}">Add routes</a>
+
+    |  &nbsp;
+
+    <a th:href="@{/manageStops}">Manage Routes</a>
+
+    |
+
+    <a th:href="@{/logout}">Logout</a>
+
+</div>
+
+<h2>Admin Home Page!</h2>
+<h3>Welcome <span th:text="${userName}" ></span></h3>
+
+</body>
+</html>

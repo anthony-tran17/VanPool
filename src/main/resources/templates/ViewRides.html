@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passenger Home Page</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+
+    <a th:href="@{/passengerHome}">Home</a>
+
+    | &nbsp;
+
+    <a th:href="@{/logout}">Logout</a>
+
+</div>
+
+<p>Your previous rides</p>
+<table>
+<tr>
+    <th>From</th>
+    <th>| &nbsp;</th>
+    <th>To</th>
+    <th>| &nbsp;</th>
+    <th>Date</th>
+    <th>| &nbsp;</th>
+    <th>Passenger</th>
+    <th>| &nbsp;</th>
+    <th>Vehicle #</th>
+    <th>| &nbsp;</th>
+    <th>Amount</th>
+</tr>
+
+<tr th:each="rideList : ${ridelist}">
+    <td th:text="${rideList.getFromStop()}"></td>
+    <td>&nbsp; &nbsp; </td>
+    <td th:text="${rideList.getToStop()}"></td>
+    <td>&nbsp; &nbsp; </td>
+    <td th:text="${rideList.getRideDate()}"></td>
+    <td>&nbsp; &nbsp; </td>
+    <td th:text="${rideList.getPassengerNo()}"></td>
+    <td>&nbsp; &nbsp; </td>
+    <td th:text="${rideList.getVehicleNo()}"></td>
+    <td>&nbsp; &nbsp; </td>
+    <td th:text="${rideList.getCost()}"></td>
+    <td>&nbsp; &nbsp;</td>
+</tr>
+    <tr>
+        <td>
+            <a th:href="@{/passengerHome}">Back to home page</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+h1{
+    font-style: italic;
+    font-variant: all-small-caps;
+    text-align: center;
+    text-emphasis-color: brown;
+}
+
+.full-page {
+    background-color: aliceblue;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.register-page {
+    background-color: antiquewhite;
+}
+
+.register-label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+}
+
+.input {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+}
+
+.form-page {
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    line-height: 20px;
+    z-index: 1;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+.right {
+    right: 0;
+    background-color: red;
+}
+
+
+.left {
+    left: 0;
+    background-color: #111;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

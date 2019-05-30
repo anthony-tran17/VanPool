@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passenger Home page</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+
+    <a th:href="@{/passengerHome}">Home</a>
+
+    | &nbsp;
+
+    <a th:href="@{/viewHistory}">View Previous Rides</a>
+
+    |  &nbsp;
+
+    <a th:href="@{/bookRide}">Book a ride</a>
+
+    |  &nbsp;
+
+    <a th:href="@{/logout}">Logout</a>
+
+</div>
+
+
+<h2>Passenger Home Page!</h2>
+<h3>Welcome <span th:text="${userName}" ></span></h3>
+
+</body>
+</html>

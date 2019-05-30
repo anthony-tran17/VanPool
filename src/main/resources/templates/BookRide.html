@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Home page</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+
+
+    <a th:href="@{/passengerHome}">Home</a>
+
+    | &nbsp;
+
+    <a th:href="@{/logout}">Logout</a>
+
+</div>
+
+<p>Book your ride</p>
+<form class="form-page" th:action="@{/bookRide}" th:method="POST">
+    <table>
+        <tr>
+            <td><label class="register-label">Source</label> </td>
+            <td><select name="source">
+                <option th:each="fromStop : ${fromStop}" th:value="${fromStop}" th:text="${fromStop}"></option>
+            </select> </td>
+        </tr>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <tr>
+            <td><label class="register-label">Destination</label> </td>
+            <td><select name="destination">
+                <option th:each="toStop : ${toStop}" th:value="${toStop}" th:text="${toStop}"></option>
+            </select></td>
+        </tr>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <tr>
+            <td><label class="register-label">Number Of Passengers:</label> </td>
+            <td><input type="text" class="input" name="passengerCount"/></td>
+        </tr>
+        <tr>
+            <td><input class="input" type="submit" value="Find a Ride"/> </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

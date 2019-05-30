@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Home page</title>
+    <link href="/static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body class="full-page">
+
+<div xmlns:th="http://www.thymeleaf.org"
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+
+
+    <a th:href="@{/passengerHome}">Home</a>
+
+    | &nbsp;
+
+    <a th:href="@{/logout}">Logout</a>
+
+</div>
+<h2>Your Confirmation Page</h2>
+<table th:each="rideDetails : ${rideDetails}">
+    <tr>
+        <td><label class="register-label">Source:</label></td>
+        <td th:text="${rideDetails.getFromPlace()}"></td>
+    </tr>
+    <tr>
+        <td><label class="register-label">Destination:</label></td>
+        <td th:text="${rideDetails.getToPlace()}"></td>
+    </tr>
+    <tr>
+        <td><label class="register-label">Vehicle Number:</label></td>
+        <td th:text="${rideDetails.getVehicleNo()}"></td>
+    </tr>
+    <tr>
+        <td><label class="register-label">Amount:</label></td>
+        <td th:text="${rideDetails.getCost()}"></td>
+    </tr>
+</table>
+</body>
+</html>

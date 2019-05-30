@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  </head>
+  <body class="full-page">
+  <th:block th:include="/_menu"></th:block>
+  <h2>Login</h2>
+  <h2><div th:if = "${errorMessage!=null}" th:utext="${errorMessage}" class="error">..
+  </div></h2>
+  <div class="login-page">
+    <div class="form">
+      <form class="form-page" th:action="@{/login}" th:object="${login_form}" method="POST">
+        <table>
+          <tr>
+            <td><label class="register-label">Email ID</label></td>
+            <td><input name="email" class="input" type="text" th:field="*{email}"/></td>
+            <td><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="register-label">Password</label></td>
+            <td><input name="password" class="input" type="password" th:field="*{password}"/></td>
+            <td><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+            </td>
+          </tr>
+          <tr>
+            <td><input align="center" type="submit" value="Login"/></td>
+          </tr>
+          <tr>
+            <td>
+            <p class="input">Not registered,&nbsp; <a th:href="@{/register}">Please sign up</a></p>
+            </td>
+          </tr>
+
+        </table>
+      </form>
+    </div>
+  </div>
+  </body>
+</html>
