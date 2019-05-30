@@ -1,2 +1,3 @@
-# Team6
-project repository for CS5800
+# VanPool Service System
+
+Transportation system that cuts energy use and increases energy efficiency for the University.
